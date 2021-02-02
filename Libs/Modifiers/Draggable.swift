@@ -1,9 +1,5 @@
-//
-//  Draggable.swift
-//  NotXcode (iOS)
-//
-//  Created by DaBazar on 28.01.21.
-//
+
+// TODO: Optimise use KeyPreference (Maxim)
 
 import SwiftUI
 

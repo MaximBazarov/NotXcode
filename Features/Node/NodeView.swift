@@ -6,41 +6,37 @@
 //
 
 import SwiftUI
+import Recoil
 
 struct NodeView: View {
 
-    var parameters: [String] = [ "login", "countercounter", "anotherOne"]
-    var name: String = "AppState"
+    @MutableValue var node: Node
+
+    init(id: Node.ID) {
+        guard let node = Canvas.State.nodeCatalog.at(id: id) else { return }
+        _node = MutableValue(node)
+    }
 
     var foregroundColor: Color = Color.accOrange
 
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
+        return GeometryReader { reader in
 
-            // Header
-            NodeTitle()
-
-            // Output
-            VStack(alignment: .trailing) {
-                ForEach(parameters, id: \.self){ item in
-                    ParameterOutlet(
-                        title: item,
-                        color: Color.accOrange
-                    )
-                }
+            VStack(alignment: .center, spacing: 0) {
+                NodeTitle(id: node.id)
+//                ParameterList(parameters: node.parameters)
             }
-            .padding()
-            .foregroundColor(.accOrange)
-            .background(Color.bgOrange.cornerRadius(10, corners: [.bottomLeft, .bottomRight]))
+            .padding(3)
+            .clipped()
+            .background(
+                Color.accOrange
+                    .cornerRadius(10)
+                    .shadow(color: Color.bgOrange.opacity(0.1), radius: 10, x: 0, y: 2)
+            )
+            .offset(CGSize(width: CGFloat.random(in: (0...5000)), height: CGFloat.random(in: (0...5000))))
+            .draggable()
+
         }
-        .padding(3)
-        .background(
-            Color.accOrange
-                .cornerRadius(10)
-                .shadow(color: Color.accOrange.opacity(0.1), radius: 20, x: 0, y: 10)
-        )
-
-
 
     }
 }
@@ -48,7 +44,7 @@ struct NodeView: View {
 
 struct NodeView_Previews: PreviewProvider {
     static var previews: some View {
-        NodeView()
+        NodeView(id: Node.ID(value: ""))
     }
 }
 
@@ -57,19 +53,23 @@ struct NodeView_Previews: PreviewProvider {
 
 struct ParameterOutlet: View {
 
-    var title: String = ""
-    var color: Color = .accentColor
-    var strokeWidth: CGFloat = 2
+////    @Value var parameter: Canvas.Node.Parameter
+//
+//    init(parameterID: UUID) {
+//        _parameter = Value(Canvas.parametersCatalog.at(id: parameterID))
+//    }
 
     var body: some View {
         HStack {
-            Text(title)
+            Text("title")
                 .font(.body)
 
             Circle()
-                .stroke(color,
-                        style: StrokeStyle(lineWidth: strokeWidth)
+                .stroke(
+                    Color.accOrange,
+                    style: StrokeStyle(lineWidth: 1)
                 )
+                .drawingGroup(opaque: true)
                 .frame(width: 20, height: 20)
         }
     }
@@ -79,11 +79,33 @@ struct ParameterOutlet: View {
 // MARK: - Node Title
 
 struct NodeTitle: View {
-    var title: String = ""
+
+    @MutableValue var node: Node
+
+    init(id: Node.ID) {
+        _node = MutableValue(Canvas.State.nodeCatalog.at(id: id))
+    }
 
     var body: some View {
-        Text(title)
+        Text(node.name)
             .font(.headline)
             .padding()
     }
 }
+
+
+//struct ParameterList: View {
+//
+//    var parameters: [UUID]
+//
+//    var body: some View {
+//        VStack(alignment: .trailing) {
+//            ForEach(0..<parameters.count) { index in
+//                ParameterOutlet(parameterID: parameters[index])
+//            }
+//        }.padding()
+//        .foregroundColor(.accOrange)
+//        .background(Color.bgOrange.cornerRadius(10, corners: [.bottomLeft, .bottomRight]))
+//    }
+//}
+//

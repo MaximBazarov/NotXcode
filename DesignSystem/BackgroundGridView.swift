@@ -60,6 +60,7 @@ struct BackgroundGridView: View {
                 }
             }
             .stroke(Color.grid, lineWidth: 2)
+            .drawingGroup(opaque: true)
         }
     }
 

@@ -7,26 +7,49 @@
 
 import SwiftUI
 
+
 struct CanvasView: View {
 
-    @State var point = CGSize(width: 100, height: 100)
+    @MutableValue var nodes: [Node.ID]
+
+    init(id: Canvas.ID) {
+        if let node = Canvas.State.nodesOnCanvas.at(id: id) {
+            _nodes = MutableValue(node)
+        }
+        
+    }
 
     var body: some View {
+
+        let zoom = 1 // preferences.scale.width
+
         GeometryReader { reader in
-            NodeView()
-                .offset(point)
-                .draggable(
-                    onChanged: { (size) in
-                        self.point = size / reader.size
-                    },
-                    onEnded: { size in
-                        print(size)
-                    }
-                )
+            ForEach(0..<nodes.count) { index in
+                NodeView(id: nodes[index])
+            }
         }
+        .scaleEffect(CGSize(width: zoom, height: zoom), anchor: .center)
+        .clipped()
         .background(BackgroundGridView())
+        .drawingGroup(opaque: true)
         .ignoresSafeArea(.all)
-    }
+            HStack(spacing: 16) {
+                Text("\(zoom)")
+//                Button("Zoom Out") {
+//                    var zoom = self.zoom
+//                    zoom -= 0.05
+//                    if zoom < 0.1 { zoom = 0.1 }
+//                    self.zoom = zoom
+//                }
+//                Button("Zoom In") {
+//                    var zoom = self.zoom
+//                    zoom += 0.05
+//                    if zoom > 3 { zoom = 3 }
+//                    self.zoom = zoom
+//                }
+            }
+        }
+
 }
 
 extension View {
@@ -47,7 +70,7 @@ struct RoundedCorner: Shape {
 
 struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
-        CanvasView()
+        CanvasView(id: Canvas.ID(id: ""))
     }
 }
 
