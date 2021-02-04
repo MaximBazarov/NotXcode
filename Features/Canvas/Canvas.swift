@@ -17,26 +17,18 @@ import SwiftUI
 struct Canvas: Codable {
 
     let id: ID
+    let nodes: [Node.ID]
 
-    struct ID: Hashable, Codable {
-        let value: String
-
-        init(id: String) {
-            self.value = "Canvas.ID-\(id)"
-        }
-    }
+    struct ID: Hashable, Codable { let value: String}
 }
 
 extension Canvas {
     struct State {
 
-        static let nodesOnCanvas = AtomFamily<Canvas.ID, [Node.ID]> (
-            initial: { _ in [] }
-        )
 
         static let nodeCatalog = AtomFamily<Node.ID, Node>(
             initial: { id in
-                return Node(id: id, name: "")
+                return Node(id: id, name: "Name")
             }
         )
 

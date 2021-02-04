@@ -31,7 +31,10 @@ struct NodeView: View {
                     .cornerRadius(10)
                     .shadow(color: Color.bgOrange.opacity(0.1), radius: 10, x: 0, y: 2)
             )
-            .offset(CGSize(width: CGFloat.random(in: (0...5000)), height: CGFloat.random(in: (0...5000))))
+            .offset(CGSize(
+                        width: 1,//CGFloat.random(in: (0...5000)),
+                        height: 2//CGFloat.random(in: (0...5000))
+            ))
             .draggable()
 
         }

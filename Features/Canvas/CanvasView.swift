@@ -10,16 +10,11 @@ import SwiftUI
 
 struct CanvasView: View {
 
-    @MutableValue var nodes: [Node.ID]
-
-    init(id: Canvas.ID) {
-        _nodes = MutableValue(Canvas.State.nodesOnCanvas[id])
-    }
-
+    var canvas: Canvas
     var body: some View {
         GeometryReader { reader in
-            ForEach(0..<nodes.count) { index in
-                NodeView(id: nodes[index])
+            ForEach(0..<canvas.nodes.count) { index in
+                NodeView(id: canvas.nodes[index])
             }
         }
         .clipped()
@@ -48,7 +43,12 @@ struct RoundedCorner: Shape {
 
 struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
-        CanvasView(id: Canvas.ID(id: ""))
+        CanvasView(
+            canvas: Canvas(
+                id: Canvas.ID(value: ""),
+                nodes: []
+            )
+        )
     }
 }
 
