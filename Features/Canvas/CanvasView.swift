@@ -13,53 +13,20 @@ struct CanvasView: View {
     @MutableValue var nodes: [Node.ID]
 
     init(id: Canvas.ID) {
-        if let node = Canvas.State.nodesOnCanvas.at(id: id) {
-            _nodes = MutableValue(node)
-        }
-        
+        _nodes = MutableValue(Canvas.State.nodesOnCanvas[id])
     }
 
     var body: some View {
-
-        let zoom = 1 // preferences.scale.width
-
         GeometryReader { reader in
-
-            nodes.compactMap { (nodeID: Node.ID) -> NodeView in
-                guard let node = MutableValue(Canvas.State.nodeCatalog.at(id: nodeID))
-                else { return nil}
-                return NodeView(node: node)
-            }.map { nodeView in
-                
+            ForEach(0..<nodes.count) { index in
+                NodeView(id: nodes[index])
             }
-//            ForEach(0..<nodes.count) { index in
-//                let nodeID = nodes[index]
-//                guard let node = MutableValue(Canvas.State.nodeCatalog.at(id: nodeID))
-//                else { return }
-//                NodeView(node: node)
-//            }
         }
-        .scaleEffect(CGSize(width: zoom, height: zoom), anchor: .center)
         .clipped()
         .background(BackgroundGridView())
         .drawingGroup(opaque: true)
         .ignoresSafeArea(.all)
-            HStack(spacing: 16) {
-                Text("\(zoom)")
-//                Button("Zoom Out") {
-//                    var zoom = self.zoom
-//                    zoom -= 0.05
-//                    if zoom < 0.1 { zoom = 0.1 }
-//                    self.zoom = zoom
-//                }
-//                Button("Zoom In") {
-//                    var zoom = self.zoom
-//                    zoom += 0.05
-//                    if zoom > 3 { zoom = 3 }
-//                    self.zoom = zoom
-//                }
-            }
-        }
+    }
 
 }
 

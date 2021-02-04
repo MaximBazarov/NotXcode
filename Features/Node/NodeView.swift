@@ -12,6 +12,10 @@ struct NodeView: View {
 
     @MutableValue var node: Node
 
+    init(id: Node.ID) {
+        _node = MutableValue(Canvas.State.nodeCatalog[id])
+    }
+
     var foregroundColor: Color = Color.accOrange
 
     var body: some View {
@@ -38,13 +42,7 @@ struct NodeView: View {
 
 struct NodeView_Previews: PreviewProvider {
     static var previews: some View {
-        NodeView(node: MutableValue<Node>(Atom<Node>(initial: {
-            Node(
-                id: Node.ID(value: "Preview"),
-                name: "Preview",
-                parameters: []
-            )
-        })))
+        NodeView(id: Node.ID(value:""))
     }
 }
 

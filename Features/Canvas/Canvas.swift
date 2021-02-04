@@ -29,9 +29,20 @@ struct Canvas: Codable {
 
 extension Canvas {
     struct State {
-        static let nodesOnCanvas = Family<Canvas.ID, [Node.ID]>()
-        static let nodeCatalog = Family<Node.ID, Node>()
-        static let parametersCatalog = Family<Node.ID, Node.Parameter>()
+
+        static let nodesOnCanvas = AtomFamily<Canvas.ID, [Node.ID]> (
+            initial: { _ in [] }
+        )
+
+        static let nodeCatalog = AtomFamily<Node.ID, Node>(
+            initial: { id in
+                return Node(id: id, name: "")
+            }
+        )
+
+        static let parametersCatalog = AtomFamily<Node.ID, [Node.Parameter]>(
+            initial: { _ in []}
+        )
     }
 }
 

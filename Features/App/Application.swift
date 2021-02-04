@@ -11,10 +11,12 @@ struct Application {
 
     struct State {
 
-        static let selectedCanvas = Atom {
-            Canvas.ID(id: UUID().uuidString)
-        }
+        static let selectedCanvas = Atom<Canvas.ID>(initial: {
+            return Canvas.ID(id: "")
+        })
 
-        static let canvasCatalog = Family<Canvas.ID, Canvas>()
+        static let canvasCatalog = AtomFamily<Canvas.ID, Canvas> { id in
+            Canvas(id: id)
+        }
     }
 }

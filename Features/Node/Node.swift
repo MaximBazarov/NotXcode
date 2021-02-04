@@ -8,13 +8,12 @@
 import Foundation
 
 
-struct Node: Codable {
+struct Node: Codable, Identifiable {
     struct ID: Hashable, Codable { let value: String }
 
     let id: ID
     let name: String
 //    let offset: Offset
-    let parameters: [UUID]
 
     struct Parameter: Codable {
         enum Kind: String, Codable {

@@ -26,7 +26,7 @@ struct NotXcodeApp: App {
     }
 }
 
-typealias Family = Recoil.Family
+typealias AtomFamily = Recoil.AtomFamily
 typealias Atom = Recoil.Atom
 typealias Value = Recoil.Value
 typealias Selector = Recoil.Selector
