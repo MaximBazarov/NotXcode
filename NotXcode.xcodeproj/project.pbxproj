@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9B5C3C125CBF309001F2FEC /* Recoil in Frameworks */ = {isa = PBXBuildFile; productRef = A9B5C3C025CBF309001F2FEC /* Recoil */; };
 		D213830D25C3525E000BB935 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213830C25C3525E000BB935 /* Draggable.swift */; };
 		D213831925C3546F000BB935 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213830C25C3525E000BB935 /* Draggable.swift */; };
 		D213832725C3554A000BB935 /* CGRect+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213831225C35293000BB935 /* CGRect+Math.swift */; };
@@ -23,7 +24,6 @@
 		D28EDE9F25C68E2D004C42BB /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28EDE9D25C68E2D004C42BB /* BackgroundGridView.swift */; };
 		D29C8A5925C9B436003CD7CE /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C8A5825C9B436003CD7CE /* Node.swift */; };
 		D29C8A5A25C9B436003CD7CE /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C8A5825C9B436003CD7CE /* Node.swift */; };
-		D2B205BE25C87E3200B7CD9B /* Recoil in Frameworks */ = {isa = PBXBuildFile; productRef = D2B205BD25C87E3200B7CD9B /* Recoil */; };
 		D2CB54D725C1E4C3007781C3 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB54D625C1E4C3007781C3 /* CanvasView.swift */; };
 		D2FB23E425C6B6D400E593B7 /* TypesProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FB23E325C6B6B500E593B7 /* TypesProxy.swift */; };
 		D2FB23ED25C6B76200E593B7 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB54D625C1E4C3007781C3 /* CanvasView.swift */; };
@@ -55,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9B5C3BF25CBF2DB001F2FEC /* RecoilSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RecoilSwift; path = ../RecoilSwift; sourceTree = "<group>"; };
 		D213830C25C3525E000BB935 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
 		D213831225C35293000BB935 /* CGRect+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Math.swift"; sourceTree = "<group>"; };
 		D213833925C35935000BB935 /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		D27B63AE25BC522E00F0CFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D28EDE9D25C68E2D004C42BB /* BackgroundGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGridView.swift; sourceTree = "<group>"; };
 		D29C8A5825C9B436003CD7CE /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		D2B205C525C9250500B7CD9B /* Recoil */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Recoil; path = ../Recoil; sourceTree = "<group>"; };
 		D2CB54D625C1E4C3007781C3 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		D2FB23E325C6B6B500E593B7 /* TypesProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesProxy.swift; sourceTree = "<group>"; };
 		D2FB240C25C9261C00E593B7 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B205BE25C87E3200B7CD9B /* Recoil in Frameworks */,
+				A9B5C3C125CBF309001F2FEC /* Recoil in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +262,7 @@
 		D2B205B725C87CB300B7CD9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2B205C525C9250500B7CD9B /* Recoil */,
+				A9B5C3BF25CBF2DB001F2FEC /* RecoilSwift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 			);
 			name = "NotXcode (iOS)";
 			packageProductDependencies = (
-				D2B205BD25C87E3200B7CD9B /* Recoil */,
+				A9B5C3C025CBF309001F2FEC /* Recoil */,
 			);
 			productName = "NotXcode (iOS)";
 			productReference = D27B638D25BC522E00F0CFFE /* NotXcode.app */;
@@ -846,7 +846,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D2B205BD25C87E3200B7CD9B /* Recoil */ = {
+		A9B5C3C025CBF309001F2FEC /* Recoil */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Recoil;
 		};

@@ -24,9 +24,20 @@ struct CanvasView: View {
         let zoom = 1 // preferences.scale.width
 
         GeometryReader { reader in
-            ForEach(0..<nodes.count) { index in
-                NodeView(id: nodes[index])
+
+            nodes.compactMap { (nodeID: Node.ID) -> NodeView in
+                guard let node = MutableValue(Canvas.State.nodeCatalog.at(id: nodeID))
+                else { return nil}
+                return NodeView(node: node)
+            }.map { nodeView in
+                
             }
+//            ForEach(0..<nodes.count) { index in
+//                let nodeID = nodes[index]
+//                guard let node = MutableValue(Canvas.State.nodeCatalog.at(id: nodeID))
+//                else { return }
+//                NodeView(node: node)
+//            }
         }
         .scaleEffect(CGSize(width: zoom, height: zoom), anchor: .center)
         .clipped()

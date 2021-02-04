@@ -12,18 +12,12 @@ struct NodeView: View {
 
     @MutableValue var node: Node
 
-    init(id: Node.ID) {
-        guard let node = Canvas.State.nodeCatalog.at(id: id) else { return }
-        _node = MutableValue(node)
-    }
-
     var foregroundColor: Color = Color.accOrange
 
     var body: some View {
         return GeometryReader { reader in
-
             VStack(alignment: .center, spacing: 0) {
-                NodeTitle(id: node.id)
+                NodeTitle(node: node)
 //                ParameterList(parameters: node.parameters)
             }
             .padding(3)
@@ -44,7 +38,13 @@ struct NodeView: View {
 
 struct NodeView_Previews: PreviewProvider {
     static var previews: some View {
-        NodeView(id: Node.ID(value: ""))
+        NodeView(node: MutableValue<Node>(Atom<Node>(initial: {
+            Node(
+                id: Node.ID(value: "Preview"),
+                name: "Preview",
+                parameters: []
+            )
+        })))
     }
 }
 
@@ -80,11 +80,7 @@ struct ParameterOutlet: View {
 
 struct NodeTitle: View {
 
-    @MutableValue var node: Node
-
-    init(id: Node.ID) {
-        _node = MutableValue(Canvas.State.nodeCatalog.at(id: id))
-    }
+    var node: Node
 
     var body: some View {
         Text(node.name)
