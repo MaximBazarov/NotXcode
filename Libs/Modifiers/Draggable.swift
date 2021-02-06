@@ -4,32 +4,43 @@
 import SwiftUI
 
 struct Draggable: ViewModifier {
-    @State var isDragging: Bool = false
 
-    @State var offset: CGSize = .zero
-    @State var dragOffset: CGSize = .zero
-
-    var onChanged: ((CGSize) -> Void)?
-    var onEnded: ((CGSize) -> Void)?
+    @Binding var position: Position
 
     func body(content: Content) -> some View {
         let drag = DragGesture()
-            .onChanged { (value) in
-                self.offset = self.dragOffset + value.translation
-                self.isDragging = true
-                self.onChanged?(self.offset)
-            }.onEnded { (value) in
-                self.isDragging = false
-                self.offset = self.dragOffset + value.translation
-                self.dragOffset = self.offset
-                self.onEnded?(self.offset)
+            .onChanged { value in
+                let offset = CGSize(width: value.startLocation.x, height: value.startLocation.y)
+                self.position = Position(cgSize: offset + value.translation)
             }
-        return content.offset(offset).gesture(drag)
+            .onEnded { value in
+
+            }
+
+//
+//            .onChanged { value in
+//                self.position = Position(cgSize: self.dragOffset + value.translation)
+//            }
+//            .onEnded { value in
+//
+//            }
+
+        return withAnimation {      
+            content.offset(position.asCGSize).gesture(drag)
+        }
+
     }
 }
-
 extension View {
-    func draggable(onChanged: ((CGSize) -> Void)? = nil, onEnded: ((CGSize) -> Void)? = nil) -> some View {
-        return self.modifier(Draggable(onChanged: onChanged, onEnded: onEnded))
+    func draggable(
+        position: Binding<Position>,
+        onChanged: ((Position) -> Void)? = nil,
+        onEnded: ((Position) -> Void)? = nil
+    ) -> some View {
+        return self.modifier(
+            Draggable(
+                position: position
+            )
+        )
     }
 }

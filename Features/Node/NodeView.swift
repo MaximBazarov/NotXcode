@@ -10,32 +10,37 @@ import Recoil
 
 struct NodeView: View {
 
-    @MutableValue var node: Node
+    var nodeID: Node.ID
+
+    @MutableValue var nodePosition: Position
 
     init(id: Node.ID) {
-        _node = MutableValue(Canvas.State.nodeCatalog[id])
+        nodeID = id
+        _nodePosition = MutableValue(Canvas.State.nodesPositions[id])
     }
 
     var foregroundColor: Color = Color.accOrange
 
     var body: some View {
+        print("Render: NodeView: \(nodeID)")
         return GeometryReader { reader in
             VStack(alignment: .center, spacing: 0) {
-                NodeTitle(node: node)
+                NodeTitle(/*id: nodeID*/)
 //                ParameterList(parameters: node.parameters)
             }
             .padding(3)
             .clipped()
             .background(
                 Color.accOrange
-                    .cornerRadius(10)
-                    .shadow(color: Color.bgOrange.opacity(0.1), radius: 10, x: 0, y: 2)
+                    .cornerRadius(8)
+                    .shadow(
+                        color: Color.bgOrange.opacity(0.1),
+                        radius: 10, x: 0, y: 2
+                    )
             )
-            .offset(CGSize(
-                        width: 1,//CGFloat.random(in: (0...5000)),
-                        height: 2//CGFloat.random(in: (0...5000))
-            ))
-            .draggable()
+            .draggable(
+                position: $nodePosition
+            )
 
         }
 
@@ -81,10 +86,14 @@ struct ParameterOutlet: View {
 
 struct NodeTitle: View {
 
-    var node: Node
+//    @MutableValue var node: Node
+
+//    init(id: Node.ID) {
+//        _node = MutableValue(Canvas.State.allNodes[id])
+//    }
 
     var body: some View {
-        Text(node.name)
+        Text("node.name")
             .font(.headline)
             .padding()
     }

@@ -13,8 +13,14 @@ struct NotXcodeApp: App {
 
     @Value(Application.State.selectedCanvas) var selectedCanvas
 
+    init() {
+        (0...1).forEach {_ in
+            Canvas.Mutation.newNode(in: selectedCanvas.id)
+        }
+
+    }
     var body: some Scene {
-        WindowGroup {
+        return WindowGroup {
             VStack {
                 CanvasView(canvas: selectedCanvas)
             }

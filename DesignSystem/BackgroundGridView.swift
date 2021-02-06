@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BackgroundGridView: View {
 
-    var spacing: CGFloat = 10
+    var spacing: CGFloat = 8
 
     var body: some View {
         GeometryReader { geometry in

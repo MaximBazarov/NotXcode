@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92136B425CEBF6700E08F57 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FB244025C9C05500E593B7 /* Application.swift */; };
 		A9B5C3C125CBF309001F2FEC /* Recoil in Frameworks */ = {isa = PBXBuildFile; productRef = A9B5C3C025CBF309001F2FEC /* Recoil */; };
 		D213830D25C3525E000BB935 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213830C25C3525E000BB935 /* Draggable.swift */; };
 		D213831925C3546F000BB935 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213830C25C3525E000BB935 /* Draggable.swift */; };
@@ -361,7 +362,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					D27B638C25BC522E00F0CFFE = {
 						CreatedOnToolsVersion = 12.4;
@@ -388,6 +389,8 @@
 				Base,
 			);
 			mainGroup = D27B638025BC522C00F0CFFE;
+			packageReferences = (
+			);
 			productRefGroup = D27B638E25BC522E00F0CFFE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -456,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A92136B425CEBF6700E08F57 /* Application.swift in Sources */,
 				D2FB23FF25C8270900E593B7 /* Experiment.swift in Sources */,
 				D2FB240E25C9261C00E593B7 /* Canvas.swift in Sources */,
 				D213832C25C3554B000BB935 /* CGRect+Math.swift in Sources */,
@@ -622,6 +626,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FY9E4363CA;
 				ENABLE_PREVIEWS = YES;
@@ -633,6 +638,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = one.goodenough.multiplatform.NotXcode;
 				PRODUCT_NAME = NotXcode;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -644,6 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FY9E4363CA;
 				ENABLE_PREVIEWS = YES;
@@ -655,6 +662,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = one.goodenough.multiplatform.NotXcode;
 				PRODUCT_NAME = NotXcode;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -668,9 +676,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 732FX2XPRA;
+				DEVELOPMENT_TEAM = FY9E4363CA;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -679,8 +688,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = one.goodenough.NotXcode;
+				PRODUCT_BUNDLE_IDENTIFIER = one.goodenough.macOS.NotXcode;
 				PRODUCT_NAME = NotXcode;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -692,9 +702,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 732FX2XPRA;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
