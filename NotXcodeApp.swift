@@ -11,18 +11,18 @@ import Recoil
 @main
 struct NotXcodeApp: App {
 
-    @Value(Application.State.selectedCanvas) var selectedCanvas
+    @Value(AppState.selectedCanvasID) var selectedCanvasID
 
     init() {
-        (0...1).forEach {_ in
-            Canvas.Mutation.newNode(in: selectedCanvas.id)
+        (0..<1).forEach {_ in
+            Canvas.Mutation.newNode(in: selectedCanvasID)
         }
 
     }
     var body: some Scene {
         return WindowGroup {
             VStack {
-                CanvasView(canvas: selectedCanvas)
+                CanvasView(canvasID: selectedCanvasID)
             }
         }
     }

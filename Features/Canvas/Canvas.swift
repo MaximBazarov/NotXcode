@@ -18,6 +18,9 @@ struct Canvas: Codable {
 
     var id: ID
     var nodes: [Node.ID]
+    var zoom: CGFloat = 1
+    var size = CGSize(width: 5000,height: 5000)
+
 
     struct ID: Hashable, Codable { let value: String}
 }
@@ -29,12 +32,9 @@ extension Canvas {
 
     struct State {
 
-
-        static let allNodes = AtomFamily<Node.ID, Node>(
-            initial: { id in
-                return Node(id: id, name: "Name")
-            }
-        )
+        static let all = AtomFamily<Canvas.ID, Canvas> { id in
+            Canvas(id: id, nodes: [])
+        }
 
         static let nodesPositions = AtomFamily<Node.ID, Position>(
             initial: { id in
@@ -56,26 +56,23 @@ extension Canvas {
     enum Mutation {
 
         static func newNode(in canvasID: Canvas.ID, _ position: Position = .zero) {
-            let canvas = Application.State.allCanvases[canvasID]
+            let canvas = Canvas.State.all[canvasID]
             let id = Node.ID(value: "Node-\(UUID().uuidString)")
             let nodeAtom = Atom<Node>(initial: {
                 Node(id: id, name: "NoNameNode")
             })
-            Canvas.State.allNodes[id] = nodeAtom
-            Canvas.State.nodesPositions[id].value = Position.random(5000)
+            Node.State.all[id] = nodeAtom
+            Canvas.State.nodesPositions[id].value = Position.random(100)
             canvas.value.nodes.append(id)
         }
 
     }
 
-
-
 }
 
 // MARK: - Types
 
-struct Position: Codable {
-
+public struct Position: Codable {
 
     let x: CGFloat
     let y: CGFloat
@@ -98,7 +95,7 @@ struct Position: Codable {
         y = cgPoint.y
     }
 
-    static let zero = Position(x: 0, y: 0)
+    public static let zero = Position(x: 0, y: 0)
 
     init(cgSize: CGSize) {
         x = cgSize.width
@@ -129,7 +126,7 @@ extension Canvas {
         let height: CGFloat
         let offset: CGPoint
     }
-
+    
     struct Preferences: Codable {
         let scale: Scale
         let offset: Offset

@@ -10,51 +10,45 @@ import SwiftUI
 
 struct CanvasView: View {
 
-    var canvas: Canvas
+    @MutableValue var canvas: Canvas
+    @GestureState var magnifyBy = CGFloat(1.0)
 
-    init(canvas: Canvas) {
-        self.canvas = canvas
+    init(canvasID: Canvas.ID) {
+        _canvas = MutableValue(Canvas.State.all[canvasID])
     }
 
     var body: some View {
         ZStack {
-            ForEach(0..<canvas.nodes.count) { index in
-                NodeView(id: canvas.nodes[index])
+            ZStack {
+                ForEach(0..<canvas.nodes.count) { index in
+                    NodeView(id: canvas.nodes[index])
+                }
             }
-        }
-        .clipped()
-        .background(BackgroundGridView())
-        .drawingGroup(opaque: true)
-        .ignoresSafeArea(.all)
+            .clipped()
+            .background(Color.background)
+            .drawingGroup(opaque: true)
+            .ignoresSafeArea(.all)
+            .scaleEffect(canvas.zoom)
+            .gesture(
+                MagnificationGesture().updating($magnifyBy) {
+                    currentState, gestureState, transaction in
+                    canvas.zoom = currentState
+                }
+            )
+        }.background(Color.background)
     }
 
 }
-//
-//extension View {
-//    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-//        clipShape(RoundedCorner(radius: radius, corners: corners))
-//    }
-//}
-//
-//struct RoundedCorner: Shape {
-//    var radius: CGFloat = .infinity
-//    var corners: UIRectCorner = .allCorners
-//
-//    func path(in rect: CGRect) -> Path {
-//        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-//        return Path(path.cgPath)
-//    }
-//}
+
+
+// MARK: - Preview
 
 struct BoardView_Previews: PreviewProvider {
+
     static var previews: some View {
-        CanvasView(
-            canvas: Canvas(
-                id: Canvas.ID(value: ""),
-                nodes: []
-            )
-        )
+        CanvasView(canvasID: Canvas.ID(value: ""))
     }
+
 }
 
 
