@@ -16,7 +16,7 @@ public struct Node: Codable {
     let parameters: [Parameter.ID]
 
     internal init(id: Node.ID? = nil, name: String = "", position: Position = .zero, nodes: [Node.ID] = [], parameters: [Node.Parameter.ID] = []) {
-        self.id = id ?? Node.ID(value: "Node-\(UUID().uuidString)")
+        self.id = id ?? Node.ID(id: "Node-\(UUID().uuidString)")
         self.name = name
         self.position = position
         self.nodes = nodes
@@ -49,7 +49,7 @@ extension Node {
 // MARK: - Types
 
 public extension Node {
-    struct ID: Hashable, Codable { let value: String }
+    struct ID: Hashable, Codable, Identifiable { public let id: String }
 
     struct Parameter: Codable {
 

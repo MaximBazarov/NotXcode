@@ -22,7 +22,9 @@ struct Canvas: Codable {
     var size = CGSize(width: 5000,height: 5000)
 
 
-    struct ID: Hashable, Codable { let value: String}
+    struct ID: Hashable, Codable, Identifiable {
+        var id: String
+    }
 }
 
 
@@ -57,7 +59,7 @@ extension Canvas {
 
         static func newNode(in canvasID: Canvas.ID, _ position: Position = .zero) {
             let canvas = Canvas.State.all[canvasID]
-            let id = Node.ID(value: "Node-\(UUID().uuidString)")
+            let id = Node.ID(id: "Node-\(UUID().uuidString)")
             let nodeAtom = Atom<Node>(initial: {
                 Node(id: id, name: "NoNameNode")
             })

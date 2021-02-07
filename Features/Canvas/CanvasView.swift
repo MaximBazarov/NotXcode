@@ -20,8 +20,8 @@ struct CanvasView: View {
     var body: some View {
         ZStack {
             ZStack {
-                ForEach(0..<canvas.nodes.count) { index in
-                    NodeView(id: canvas.nodes[index])
+                ForEach(canvas.nodes) { node in
+                    NodeView(id: node)
                 }
             }
             .clipped()
@@ -34,7 +34,10 @@ struct CanvasView: View {
                     currentState, gestureState, transaction in
                     canvas.zoom = currentState
                 }
-            )
+            ).onTapGesture {
+                print("tap")
+                return Canvas.Mutation.newNode(in: canvas.id)
+            }
         }.background(Color.background)
     }
 
@@ -46,7 +49,7 @@ struct CanvasView: View {
 struct BoardView_Previews: PreviewProvider {
 
     static var previews: some View {
-        CanvasView(canvasID: Canvas.ID(value: ""))
+        CanvasView(canvasID: Canvas.ID(id: ""))
     }
 
 }

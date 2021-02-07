@@ -13,7 +13,7 @@ struct AppState {
     // should be changed to get this from a document
     // CanvasView is open for the canvas ID so it's enough to know
     static let selectedCanvasID = Atom<Canvas.ID>(initial: {
-        return Canvas.ID(value: "")
+        return Canvas.ID(id: "")
     })
 
     static let selectedCanvas = Selector<Canvas> { get in

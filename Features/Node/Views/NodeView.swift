@@ -60,6 +60,6 @@ struct NodeView: View {
 
 struct NodeView_Previews: PreviewProvider {
     static var previews: some View {
-        NodeView(id: Node.ID(value:""))
+        NodeView(id: Node.ID(id:""))
     }
 }
