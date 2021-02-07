@@ -14,8 +14,8 @@ struct ParameterListView: View {
     var body: some View {
         HStack {
             VStack{
-                ForEach(0..<parameters.count) { index in
-                    NodeParameterView(parameterID: parameters[index])
+                ForEach(parameters) { parameter in
+                    NodeParameterView(parameterID: parameter)
                 }
             }
         }
@@ -29,9 +29,9 @@ struct ParameterListView: View {
 struct ParameterListView_Previews: PreviewProvider {
     static var previews: some View {
         ParameterListView(parameters: [
-            Node.Parameter.ID(value: "1"),
-            Node.Parameter.ID(value: "2"),
-            Node.Parameter.ID(value: "3"),
+            Node.Parameter.ID(id: "1"),
+            Node.Parameter.ID(id: "2"),
+            Node.Parameter.ID(id: "3"),
         ])
     }
 }

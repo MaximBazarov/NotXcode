@@ -9,16 +9,23 @@ import SwiftUI
 
 struct OutletView: View {
     var body: some View {
-        Rectangle()
+        Circle()
             .stroke(
                 Color.accOrange,
                 style: StrokeStyle(lineWidth: 2)
             )
             .drawingGroup(opaque: true)
-            .rotationEffect(Angle(degrees: 45))
             .frame(width: 20, height: 20)
-        
     }
+//    // Romb
+//    Rectangle()
+//        .stroke(
+//            Color.accOrange,
+//            style: StrokeStyle(lineWidth: 2)
+//        )
+//        .drawingGroup(opaque: true)
+//        .rotationEffect(Angle(degrees: 45))
+//        .frame(width: 20, height: 20)
 }
 
 struct OutletView_Previews: PreviewProvider {

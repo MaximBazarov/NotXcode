@@ -61,7 +61,14 @@ extension Canvas {
             let canvas = Canvas.State.all[canvasID]
             let id = Node.ID(id: "Node-\(UUID().uuidString)")
             let nodeAtom = Atom<Node>(initial: {
-                Node(id: id, name: "NoNameNode")
+                Node(
+                    id: id,
+                     name: "NoNameNode",
+                     parameters: Array(
+                        repeating: Node.Parameter.ID(id: "Node.Parameter-\(UUID().uuidString)"),
+                        count: 4
+                     )
+                )
             })
             Node.State.all[id] = nodeAtom
             Canvas.State.nodesPositions[id].value = Position.random(100)

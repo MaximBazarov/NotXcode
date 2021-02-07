@@ -38,7 +38,7 @@ extension Node {
         
         static let parameters = AtomFamily<Parameter.ID, Parameter>(
             initial:  { id in
-                Parameter(id: id, name: "", kind: .output, position: .zero)
+                Parameter(id: id, name: "parameter", kind: .output, position: .zero)
             }
         )
 
@@ -58,7 +58,7 @@ public extension Node {
         let kind: Kind
         let position: Position
 
-        public struct ID: Hashable, Codable { let value: String }
+        public struct ID: Hashable, Codable, Identifiable { public let id: String }
         enum Kind: String, Codable {
             case output
             case input

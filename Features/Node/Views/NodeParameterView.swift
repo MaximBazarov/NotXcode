@@ -19,8 +19,9 @@ struct NodeParameterView: View {
     
     var body: some View {
         HStack {
-            Text("title that long long long ass")
+            Text(parameter.name)
                 .font(.body)
+            OutletView()
         }
     }
 }
@@ -29,7 +30,7 @@ struct NodeParameterView: View {
 struct NodeParameterView_Previews: PreviewProvider {
     static var previews: some View {
         NodeParameterView(
-            parameterID: Node.Parameter.ID(value: "")
+            parameterID: Node.Parameter.ID(id: "")
         )
     }
 }
