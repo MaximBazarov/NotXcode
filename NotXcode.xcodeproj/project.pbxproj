@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A95874E025D0573200E2CA61 /* Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95874DF25D0573200E2CA61 /* Zoom.swift */; };
+		A95874E125D0573200E2CA61 /* Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95874DF25D0573200E2CA61 /* Zoom.swift */; };
+		A982D93325D6F6F100F5905E /* Exper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982D93225D6F6F100F5905E /* Exper.swift */; };
+		A982D93425D6F6F100F5905E /* Exper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982D93225D6F6F100F5905E /* Exper.swift */; };
 		A98BCC2C25CFC74300FCAAAC /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2125CFC74300FCAAAC /* CanvasView.swift */; };
 		A98BCC2D25CFC74300FCAAAC /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2125CFC74300FCAAAC /* CanvasView.swift */; };
 		A98BCC2E25CFC74300FCAAAC /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2225CFC74300FCAAAC /* Canvas.swift */; };
@@ -62,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A95874DF25D0573200E2CA61 /* Zoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zoom.swift; sourceTree = "<group>"; };
+		A982D93225D6F6F100F5905E /* Exper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exper.swift; sourceTree = "<group>"; };
 		A98BCC2125CFC74300FCAAAC /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		A98BCC2225CFC74300FCAAAC /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		A98BCC2425CFC74300FCAAAC /* NodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
@@ -126,9 +132,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A95874DE25D0571F00E2CA61 /* Zoom */ = {
+			isa = PBXGroup;
+			children = (
+				A95874DF25D0573200E2CA61 /* Zoom.swift */,
+			);
+			path = Zoom;
+			sourceTree = "<group>";
+		};
 		A98BCC1F25CFC74300FCAAAC /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A95874DE25D0571F00E2CA61 /* Zoom */,
 				A98BCC2025CFC74300FCAAAC /* Canvas */,
 				A98BCC2325CFC74300FCAAAC /* Node */,
 			);
@@ -185,6 +200,7 @@
 		D27B638025BC522C00F0CFFE = {
 			isa = PBXGroup;
 			children = (
+				A982D93225D6F6F100F5905E /* Exper.swift */,
 				A98BCC3E25CFC7F900FCAAAC /* AppState.swift */,
 				D27B638625BC522C00F0CFFE /* NotXcodeApp.swift */,
 				A98BCC1F25CFC74300FCAAAC /* Features */,
@@ -447,6 +463,7 @@
 			files = (
 				A98BCC3825CFC74300FCAAAC /* NodeTitle.swift in Sources */,
 				D213832725C3554A000BB935 /* CGRect+Math.swift in Sources */,
+				A95874E025D0573200E2CA61 /* Zoom.swift in Sources */,
 				A98BCC2C25CFC74300FCAAAC /* CanvasView.swift in Sources */,
 				D213834625C35A06000BB935 /* Colors.swift in Sources */,
 				A98BCC2E25CFC74300FCAAAC /* Canvas.swift in Sources */,
@@ -454,6 +471,7 @@
 				A98BCC3F25CFC7F900FCAAAC /* AppState.swift in Sources */,
 				A98BCC3C25CFC74300FCAAAC /* Node.swift in Sources */,
 				A98BCC3025CFC74300FCAAAC /* NodeView.swift in Sources */,
+				A982D93325D6F6F100F5905E /* Exper.swift in Sources */,
 				A98BCC3425CFC74300FCAAAC /* NodeParameterView.swift in Sources */,
 				D28EDE9E25C68E2D004C42BB /* BackgroundGridView.swift in Sources */,
 				A98BCC3225CFC74300FCAAAC /* ParameterListView.swift in Sources */,
@@ -476,8 +494,10 @@
 				A98BCC2F25CFC74300FCAAAC /* Canvas.swift in Sources */,
 				D28EDE9F25C68E2D004C42BB /* BackgroundGridView.swift in Sources */,
 				A98BCC3525CFC74300FCAAAC /* NodeParameterView.swift in Sources */,
+				A95874E125D0573200E2CA61 /* Zoom.swift in Sources */,
 				A98BCC4025CFC7F900FCAAAC /* AppState.swift in Sources */,
 				A98BCC3D25CFC74300FCAAAC /* Node.swift in Sources */,
+				A982D93425D6F6F100F5905E /* Exper.swift in Sources */,
 				D2FB23E425C6B6D400E593B7 /* TypesProxy.swift in Sources */,
 				D213831925C3546F000BB935 /* Draggable.swift in Sources */,
 				A98BCC3325CFC74300FCAAAC /* ParameterListView.swift in Sources */,

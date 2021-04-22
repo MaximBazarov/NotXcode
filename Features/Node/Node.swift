@@ -9,13 +9,16 @@ import Foundation
 
 
 public struct Node: Codable {
+
     let id: ID
     let name: String
     let position: Position
     let nodes: [Node.ID]
     let parameters: [Parameter.ID]
 
-    internal init(id: Node.ID? = nil, name: String = "", position: Position = .zero, nodes: [Node.ID] = [], parameters: [Node.Parameter.ID] = []) {
+    public struct ID: Hashable, Codable, Identifiable { public let id: String }
+
+    public init(id: Node.ID? = nil, name: String = "", position: Position = .zero, nodes: [Node.ID] = [], parameters: [Node.Parameter.ID] = []) {
         self.id = id ?? Node.ID(id: "Node-\(UUID().uuidString)")
         self.name = name
         self.position = position
@@ -49,7 +52,6 @@ extension Node {
 // MARK: - Types
 
 public extension Node {
-    struct ID: Hashable, Codable, Identifiable { public let id: String }
 
     struct Parameter: Codable {
 
@@ -59,7 +61,8 @@ public extension Node {
         let position: Position
 
         public struct ID: Hashable, Codable, Identifiable { public let id: String }
-        enum Kind: String, Codable {
+
+        public enum Kind: String, Codable {
             case output
             case input
         }

@@ -11,7 +11,6 @@ import SwiftUI
 struct CanvasView: View {
 
     @MutableValue var canvas: Canvas
-    @GestureState var magnifyBy = CGFloat(1.0)
 
     init(canvasID: Canvas.ID) {
         _canvas = MutableValue(Canvas.State.all[canvasID])
@@ -19,21 +18,24 @@ struct CanvasView: View {
 
     var body: some View {
         ZStack {
+            Text("\(canvas.zoom)").foregroundColor(.blue).zIndex(5)
             ZStack {
                 ForEach(canvas.nodes) { node in
-                    NodeView(id: node)
+                    NodeView(id: node).scaleEffect(canvas.zoom)
                 }
+
             }
             .clipped()
             .background(Color.background)
             .drawingGroup(opaque: true)
             .ignoresSafeArea(.all)
-            .scaleEffect(canvas.zoom)
+
             .gesture(
-                MagnificationGesture().updating($magnifyBy) {
-                    currentState, gestureState, transaction in
-                    canvas.zoom = currentState
-                }
+                MagnificationGesture().onChanged({ value in
+                    canvas.zoom -= (1 - value)/20
+                    print(value.magnitude)
+
+                })
             ).onTapGesture {
                 print("tap")
                 return Canvas.Mutation.newNode(in: canvas.id)
