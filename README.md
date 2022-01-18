@@ -1,6 +1,3 @@
 # NotXcode
 
-## Swift Recoil
-you need to integrate https://github.com/MaximBazarov/RecoilSwift
-or clone it one folder above the project
-
+OUTDATED: Please don't try to run it it doesn't work, I promise I will update it later, when? Yes!
