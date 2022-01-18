@@ -6,43 +6,41 @@
 //
 
 import SwiftUI
+import Decore
 
 
 struct CanvasView: View {
 
-    @MutableValue var canvas: Canvas
+    var id: Canvas.ID
 
-    init(canvasID: Canvas.ID) {
-        _canvas = MutableValue(Canvas.State.all[canvasID])
-    }
+    @Bind(Canvas.All.self) var canvas
+    @Bind(Canvas.Nodes.self) var nodes
+    @Observe(Canvas.NewNodeId.self) var newNodeID
 
     var body: some View {
-        ZStack {
-            Text("\(canvas.zoom)").foregroundColor(.blue).zIndex(5)
+        return VStack{
+            List(nodes[id]) { node in
+                Text("\(node.id)")
+            }
             ZStack {
-                ForEach(canvas.nodes) { node in
-                    NodeView(id: node).scaleEffect(canvas.zoom)
+                ForEach(canvas[id].nodes) { node in
+                    NodeView(id: node).scaleEffect(canvas[id].zoom)
                 }
-
             }
             .clipped()
             .background(Color.background)
             .drawingGroup(opaque: true)
+            .frame(width: 600, height: 600)
             .ignoresSafeArea(.all)
-
             .gesture(
                 MagnificationGesture().onChanged({ value in
-                    canvas.zoom -= (1 - value)/20
-                    print(value.magnitude)
-
+                    canvas[id].zoom -= (1 - value)/20
                 })
-            ).onTapGesture {
-                print("tap")
-                return Canvas.Mutation.newNode(in: canvas.id)
-            }
-        }.background(Color.background)
-    }
+            )
 
+        }
+        .background(Color.background)
+    }
 }
 
 
@@ -51,7 +49,7 @@ struct CanvasView: View {
 struct BoardView_Previews: PreviewProvider {
 
     static var previews: some View {
-        CanvasView(canvasID: Canvas.ID(id: ""))
+        CanvasView(id: singleCanvas)
     }
 
 }

@@ -15,7 +15,7 @@ struct ParameterListView: View {
         HStack {
             VStack{
                 ForEach(parameters) { parameter in
-                    NodeParameterView(parameterID: parameter)
+                    NodeParameterView(id: parameter)
                 }
             }
         }

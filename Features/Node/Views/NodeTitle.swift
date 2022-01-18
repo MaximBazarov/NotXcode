@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import Decore
 
 struct NodeTitle: View {
 
-    @MutableValue var node: Node
+    var id: Node.ID
+
+    @Bind(Node.All.self) var node
 
     var body: some View {
-        Text(node.name)
+        Text(node[id].name)
             .font(.headline)
             .padding()
             .background(
@@ -22,13 +25,8 @@ struct NodeTitle: View {
 }
 
 struct NodeTitle_Previews: PreviewProvider {
-    
-    static let previewNode = MutableValue(Atom {
-        Node(name: "PreviewNode")
-    })
-
 
     static var previews: some View {
-        NodeTitle(node: previewNode)
+        NodeTitle(id: Node.ID(id: "Preview"))
     }
 }

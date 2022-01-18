@@ -6,20 +6,17 @@
 //
 
 import SwiftUI
+import Decore
 
 struct NodeParameterView: View {
-    
-    @MutableValue var parameter: Node.Parameter
-    
-    init(parameterID: Node.Parameter.ID) {
-        _parameter = MutableValue(
-            Node.State.parameters[parameterID]
-        )
-    }
+
+    var id: Node.Parameter.ID
+
+    @Bind(Node.Parameters.self) var parameters
     
     var body: some View {
         HStack {
-            Text(parameter.name)
+            Text(parameters[id].name)
                 .font(.body)
             OutletView()
         }
@@ -30,7 +27,7 @@ struct NodeParameterView: View {
 struct NodeParameterView_Previews: PreviewProvider {
     static var previews: some View {
         NodeParameterView(
-            parameterID: Node.Parameter.ID(id: "")
+            id: Node.Parameter.ID(id: "")
         )
     }
 }

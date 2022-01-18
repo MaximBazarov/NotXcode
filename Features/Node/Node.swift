@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Decore
 
 
 public struct Node: Codable {
@@ -13,38 +14,57 @@ public struct Node: Codable {
     let id: ID
     let name: String
     let position: Position
-    let nodes: [Node.ID]
     let parameters: [Parameter.ID]
 
     public struct ID: Hashable, Codable, Identifiable { public let id: String }
-
-    public init(id: Node.ID? = nil, name: String = "", position: Position = .zero, nodes: [Node.ID] = [], parameters: [Node.Parameter.ID] = []) {
-        self.id = id ?? Node.ID(id: "Node-\(UUID().uuidString)")
-        self.name = name
-        self.position = position
-        self.nodes = nodes
-        self.parameters = parameters
-    }
 }
 
 
 // MARK: - State
 
 extension Node {
-    struct State {
 
-        static let all = AtomFamily<Node.ID, Node>(
-            initial: { id in
-                return Node(id: id, name: "Name")
-            }
-        )
-        
-        static let parameters = AtomFamily<Parameter.ID, Parameter>(
-            initial:  { id in
-                Parameter(id: id, name: "parameter", kind: .output, position: .zero)
-            }
-        )
+    /// Storage for all nodes in all canvases
+    struct All: GroupState {
+        typealias Element = Node
+        typealias ID = Node.ID
 
+        static func initialValue(for id: Node.ID) -> Node {
+            Node(
+                id: id,
+                name: "NoNameNode",
+                position: Position(x: 0, y: 0),
+                parameters: Array(
+                    repeating: Node.Parameter.ID(id: "Node.Parameter-\(UUID().uuidString)"),
+                    count: 4
+                )
+            )
+        }
+    }
+
+    /// Position of the node with id
+    struct Positions: GroupState {
+        typealias Element = Position
+        typealias ID = Node.ID
+
+        static func initialValue(for id: ID) -> Element {
+            Position(x: 0, y: 0)
+        }
+    }
+
+    /// Parameters of the node with id
+    struct Parameters: GroupState {
+        typealias Element = Node.Parameter
+        typealias ID = Node.Parameter.ID
+
+        static func initialValue(for id: ID) -> Element {
+            Parameter(
+                id: id,
+                name: "parameter",
+                kind: .output,
+                position: .zero
+            )
+        }
     }
 }
 

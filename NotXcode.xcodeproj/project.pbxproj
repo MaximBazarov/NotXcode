@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		A95874E025D0573200E2CA61 /* Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95874DF25D0573200E2CA61 /* Zoom.swift */; };
 		A95874E125D0573200E2CA61 /* Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95874DF25D0573200E2CA61 /* Zoom.swift */; };
-		A982D93325D6F6F100F5905E /* Exper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982D93225D6F6F100F5905E /* Exper.swift */; };
-		A982D93425D6F6F100F5905E /* Exper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982D93225D6F6F100F5905E /* Exper.swift */; };
 		A98BCC2C25CFC74300FCAAAC /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2125CFC74300FCAAAC /* CanvasView.swift */; };
 		A98BCC2D25CFC74300FCAAAC /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2125CFC74300FCAAAC /* CanvasView.swift */; };
 		A98BCC2E25CFC74300FCAAAC /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2225CFC74300FCAAAC /* Canvas.swift */; };
@@ -27,9 +25,6 @@
 		A98BCC3925CFC74300FCAAAC /* NodeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2925CFC74300FCAAAC /* NodeTitle.swift */; };
 		A98BCC3C25CFC74300FCAAAC /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2B25CFC74300FCAAAC /* Node.swift */; };
 		A98BCC3D25CFC74300FCAAAC /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC2B25CFC74300FCAAAC /* Node.swift */; };
-		A98BCC3F25CFC7F900FCAAAC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC3E25CFC7F900FCAAAC /* AppState.swift */; };
-		A98BCC4025CFC7F900FCAAAC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BCC3E25CFC7F900FCAAAC /* AppState.swift */; };
-		A9B5C3C125CBF309001F2FEC /* Recoil in Frameworks */ = {isa = PBXBuildFile; productRef = A9B5C3C025CBF309001F2FEC /* Recoil */; };
 		D213830D25C3525E000BB935 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213830C25C3525E000BB935 /* Draggable.swift */; };
 		D213831925C3546F000BB935 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213830C25C3525E000BB935 /* Draggable.swift */; };
 		D213832725C3554A000BB935 /* CGRect+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213831225C35293000BB935 /* CGRect+Math.swift */; };
@@ -44,8 +39,9 @@
 		D27B63B425BC522E00F0CFFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27B638825BC522E00F0CFFE /* Assets.xcassets */; };
 		D28EDE9E25C68E2D004C42BB /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28EDE9D25C68E2D004C42BB /* BackgroundGridView.swift */; };
 		D28EDE9F25C68E2D004C42BB /* BackgroundGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28EDE9D25C68E2D004C42BB /* BackgroundGridView.swift */; };
+		D2F02E5A27971FEC00675269 /* Decore in Frameworks */ = {isa = PBXBuildFile; productRef = D2F02E5927971FEC00675269 /* Decore */; };
+		D2F02E5C27971FFD00675269 /* Decore in Frameworks */ = {isa = PBXBuildFile; productRef = D2F02E5B27971FFD00675269 /* Decore */; };
 		D2FB23E425C6B6D400E593B7 /* TypesProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FB23E325C6B6B500E593B7 /* TypesProxy.swift */; };
-		D2FB242025C928AE00E593B7 /* Recoil in Frameworks */ = {isa = PBXBuildFile; productRef = D2FB241F25C928AE00E593B7 /* Recoil */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		A95874DF25D0573200E2CA61 /* Zoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zoom.swift; sourceTree = "<group>"; };
-		A982D93225D6F6F100F5905E /* Exper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exper.swift; sourceTree = "<group>"; };
 		A98BCC2125CFC74300FCAAAC /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		A98BCC2225CFC74300FCAAAC /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		A98BCC2425CFC74300FCAAAC /* NodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
@@ -76,7 +71,6 @@
 		A98BCC2825CFC74300FCAAAC /* OutletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutletView.swift; sourceTree = "<group>"; };
 		A98BCC2925CFC74300FCAAAC /* NodeTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeTitle.swift; sourceTree = "<group>"; };
 		A98BCC2B25CFC74300FCAAAC /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		A98BCC3E25CFC7F900FCAAAC /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = SOURCE_ROOT; };
 		A9B5C3BF25CBF2DB001F2FEC /* RecoilSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RecoilSwift; path = ../RecoilSwift; sourceTree = "<group>"; };
 		D213830C25C3525E000BB935 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
 		D213831225C35293000BB935 /* CGRect+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Math.swift"; sourceTree = "<group>"; };
@@ -103,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B5C3C125CBF309001F2FEC /* Recoil in Frameworks */,
+				D2F02E5A27971FEC00675269 /* Decore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2FB242025C928AE00E593B7 /* Recoil in Frameworks */,
+				D2F02E5C27971FFD00675269 /* Decore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +194,6 @@
 		D27B638025BC522C00F0CFFE = {
 			isa = PBXGroup;
 			children = (
-				A982D93225D6F6F100F5905E /* Exper.swift */,
-				A98BCC3E25CFC7F900FCAAAC /* AppState.swift */,
 				D27B638625BC522C00F0CFFE /* NotXcodeApp.swift */,
 				A98BCC1F25CFC74300FCAAAC /* Features */,
 				D28EDEAA25C69548004C42BB /* DesignSystem */,
@@ -313,7 +305,7 @@
 			);
 			name = "NotXcode (iOS)";
 			packageProductDependencies = (
-				A9B5C3C025CBF309001F2FEC /* Recoil */,
+				D2F02E5927971FEC00675269 /* Decore */,
 			);
 			productName = "NotXcode (iOS)";
 			productReference = D27B638D25BC522E00F0CFFE /* NotXcode.app */;
@@ -333,7 +325,7 @@
 			);
 			name = "NotXcode (macOS)";
 			packageProductDependencies = (
-				D2FB241F25C928AE00E593B7 /* Recoil */,
+				D2F02E5B27971FFD00675269 /* Decore */,
 			);
 			productName = "NotXcode (macOS)";
 			productReference = D27B639525BC522E00F0CFFE /* NotXcode.app */;
@@ -410,6 +402,7 @@
 			);
 			mainGroup = D27B638025BC522C00F0CFFE;
 			packageReferences = (
+				D2F02E5827971FEC00675269 /* XCRemoteSwiftPackageReference "Decore" */,
 			);
 			productRefGroup = D27B638E25BC522E00F0CFFE /* xcode */;
 			projectDirPath = "";
@@ -468,10 +461,8 @@
 				D213834625C35A06000BB935 /* Colors.swift in Sources */,
 				A98BCC2E25CFC74300FCAAAC /* Canvas.swift in Sources */,
 				D27B63AF25BC522E00F0CFFE /* NotXcodeApp.swift in Sources */,
-				A98BCC3F25CFC7F900FCAAAC /* AppState.swift in Sources */,
 				A98BCC3C25CFC74300FCAAAC /* Node.swift in Sources */,
 				A98BCC3025CFC74300FCAAAC /* NodeView.swift in Sources */,
-				A982D93325D6F6F100F5905E /* Exper.swift in Sources */,
 				A98BCC3425CFC74300FCAAAC /* NodeParameterView.swift in Sources */,
 				D28EDE9E25C68E2D004C42BB /* BackgroundGridView.swift in Sources */,
 				A98BCC3225CFC74300FCAAAC /* ParameterListView.swift in Sources */,
@@ -495,9 +486,7 @@
 				D28EDE9F25C68E2D004C42BB /* BackgroundGridView.swift in Sources */,
 				A98BCC3525CFC74300FCAAAC /* NodeParameterView.swift in Sources */,
 				A95874E125D0573200E2CA61 /* Zoom.swift in Sources */,
-				A98BCC4025CFC7F900FCAAAC /* AppState.swift in Sources */,
 				A98BCC3D25CFC74300FCAAAC /* Node.swift in Sources */,
-				A982D93425D6F6F100F5905E /* Exper.swift in Sources */,
 				D2FB23E425C6B6D400E593B7 /* TypesProxy.swift in Sources */,
 				D213831925C3546F000BB935 /* Draggable.swift in Sources */,
 				A98BCC3325CFC74300FCAAAC /* ParameterListView.swift in Sources */,
@@ -661,7 +650,7 @@
 				DEVELOPMENT_TEAM = FY9E4363CA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -685,7 +674,7 @@
 				DEVELOPMENT_TEAM = FY9E4363CA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -884,14 +873,27 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCSwiftPackageProductDependency section */
-		A9B5C3C025CBF309001F2FEC /* Recoil */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Recoil;
+/* Begin XCRemoteSwiftPackageReference section */
+		D2F02E5827971FEC00675269 /* XCRemoteSwiftPackageReference "Decore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:MaximBazarov/Decore.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-		D2FB241F25C928AE00E593B7 /* Recoil */ = {
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D2F02E5927971FEC00675269 /* Decore */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Recoil;
+			package = D2F02E5827971FEC00675269 /* XCRemoteSwiftPackageReference "Decore" */;
+			productName = Decore;
+		};
+		D2F02E5B27971FFD00675269 /* Decore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2F02E5827971FEC00675269 /* XCRemoteSwiftPackageReference "Decore" */;
+			productName = Decore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,27 +6,24 @@
 //
 
 import SwiftUI
-import Recoil
+import Decore
 
 struct NodeView: View {
-    
-    @MutableValue var nodePosition: Position
-    @MutableValue var node: Node
-    
-    init(id: Node.ID) {
-        _node = MutableValue(Node.State.all[id])
-        _nodePosition = MutableValue(Canvas.State.nodesPositions[id])
-    }
-    
+
+    var id: Node.ID
+
+    @Bind(Node.Positions.self) var nodePosition
+    @Bind(Node.All.self) var node
+
     var foregroundColor: Color = Color.accOrange
     
     var body: some View {
         
         return GeometryReader { reader in
             VStack(alignment: .center, spacing: 0) {
-                NodeTitle(node: _node)
-                if node.parameters.count > 0 {
-                    ParameterListView(parameters: node.parameters)
+                NodeTitle(id: id)
+                if node[id].parameters.count > 0 {
+                    ParameterListView(parameters: node[id].parameters)
                 }                
             }
             .background(
@@ -47,7 +44,7 @@ struct NodeView: View {
                 radius: 10, x: 0, y: 2
             )
             .draggable(
-                position: $nodePosition
+                position: $nodePosition[id]
             )
             
             

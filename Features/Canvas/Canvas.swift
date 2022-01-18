@@ -5,7 +5,7 @@
 //  Created by DaBazar on 02.02.21.
 //
 
-import Recoil
+import Decore
 import SwiftUI
 
 
@@ -32,52 +32,58 @@ struct Canvas: Codable {
 
 extension Canvas {
 
-    struct State {
 
-        static let all = AtomFamily<Canvas.ID, Canvas> { id in
+    /// Index of all canvases
+    struct Index: AtomicState {
+        typealias Value = [Canvas.ID]
+        static var initialValue: () -> Value = { [] }
+    }
+
+    /// Index of all ``Node``s in ``Canvas``
+    struct Nodes: GroupState {
+        typealias Element = [Node.ID]
+        typealias ID = Canvas.ID
+
+        static func initialValue(for id: Canvas.ID) -> [Node.ID] {
+            print("Here")
+            return [
+                Node.ID(id: "node1"),
+                Node.ID(id: "node2"),
+                Node.ID(id: "node3"),
+            ]
+        }
+    }
+
+    /// Storage of all canvases
+    struct All: GroupState {
+        typealias Element = Canvas
+        typealias ID = Canvas.ID
+
+        static func initialValue(for id: ID) -> Element {
             Canvas(id: id, nodes: [])
         }
-
-        static let nodesPositions = AtomFamily<Node.ID, Position>(
-            initial: { id in
-                return Position(x: 0, y: 0)
-            }
-        )
-
-        static let parametersCatalog = AtomFamily<Node.ID, [Node.Parameter]>(
-            initial: { _ in []}
-        )
     }
-}
 
+    // should be changed to get this from a document
+    // CanvasView is open for the canvas ID so it's enough to know
+    struct SelectedCanvas: AtomicState {
+        typealias Value = Canvas.ID
+        static var initialValue: () -> Value = { Canvas.ID(id: "canvas") }
+    }
 
-// MARK: - Mutations
+    struct NewNodeId: ComputedState {
+        typealias Value = Node.ID
 
-extension Canvas {
-
-    enum Mutation {
-
-        static func newNode(in canvasID: Canvas.ID, _ position: Position = .zero) {
-            let canvas = Canvas.State.all[canvasID]
-            let id = Node.ID(id: "Node-\(UUID().uuidString)")
-            let nodeAtom = Atom<Node>(initial: {
-                Node(
-                    id: id,
-                     name: "NoNameNode",
-                     parameters: Array(
-                        repeating: Node.Parameter.ID(id: "Node.Parameter-\(UUID().uuidString)"),
-                        count: 4
-                     )
-                )
-            })
-            Node.State.all[id] = nodeAtom
-            Canvas.State.nodesPositions[id].value = Position.random(100)
-            canvas.value.nodes.append(id)
+        static func shouldStoreComputedValue() -> Bool {
+            false
         }
 
+        static func value(read: Storage.Reader) -> Node.ID {
+            Node.ID(id: UUID().uuidString)
+        }
     }
-
 }
+
 
 // MARK: - Types
 

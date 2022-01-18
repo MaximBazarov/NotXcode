@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Decore",
+        "repositoryURL": "git@github.com:MaximBazarov/Decore.git",
+        "state": {
+          "branch": "main",
+          "revision": "47323313d5bf7bd3a495d39913b9f56fcd04ddab",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
